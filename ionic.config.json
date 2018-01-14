@@ -1,0 +1,8 @@
+{
+  "name": "codifex-mobile",
+  "app_id": "ae3337f3",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

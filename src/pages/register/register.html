@@ -1,0 +1,93 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="fullBackgroundregister">
+  <div class="fullBackground-bissregister">
+    <ion-row class="logo-row">
+      <ion-col col-3></ion-col>
+      <ion-col col-6>
+        <img src="../../assets/imgs/Online-Campus-Icon.png"/>
+      </ion-col>
+      <ion-col col-3></ion-col>
+    </ion-row>
+  <div class="register-box">
+    <form  #registerForm="ngForm" [formGroup]="signupForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-input type="text" formControlName="firstName" [class.invalid]="!signupForm.controls.firstName.valid && signupForm.controls.firstName.dirty" [(ngModel)]="user.firstName"  placeholder="Prénom" name="firstName" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!signupForm.controls.firstName.valid  && signupForm.controls.firstName.dirty">
+              <p style="color: red;">Entrer des caractères valides.</p>
+            </ion-item>
+            <br>
+            <ion-item>
+              <ion-input type="text" formControlName="lastName" [class.invalid]="!signupForm.controls.lastName.valid && signupForm.controls.lastName.dirty" [(ngModel)]="user.lastName" placeholder="Nom" name="lastName" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!signupForm.controls.lastName.valid  && signupForm.controls.lastName.dirty">
+              <p style="color: red;">Entrer des caractères valides.</p>
+            </ion-item>
+            <br>
+            <ion-item>
+              <ion-input type="tel" formControlName="phone" [class.invalid]="!signupForm.controls.phone.valid && signupForm.controls.phone.dirty" [(ngModel)]="user.phone" placeholder="Téléphone" name="phone" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="signupForm.controls.phone.errors !== null && signupForm.controls.phone.dirty && !signupForm.controls.phone.valid">
+              <p *ngIf="signupForm.controls.phone.errors['exist err'] === 'This value is already used.' ; else elseBlock" style="color: red;">Ce numéro est déjà utilisé.</p>
+              <ng-template #elseBlock><p style="color: red;">Entrer un numéro de téléphone valide.</p></ng-template>
+            </ion-item>
+            <br>
+            <ion-item>
+              <ion-input type="text" formControlName="username" [class.invalid]="!signupForm.controls.username.valid && signupForm.controls.username.dirty" [(ngModel)]="user.username" placeholder="Pseudo" name="username" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="signupForm.controls.username.errors !== null && signupForm.controls.username.dirty && !signupForm.controls.username.valid">
+              <p *ngIf="signupForm.controls.username.errors['exist err'] === 'This value is already used.' ; else elseBlock" style="color: red;">Ce pseudo est déjà utilisé.</p>
+              <ng-template #elseBlock><p style="color: red;">Entrer un pseudo valide.</p></ng-template>
+            </ion-item>
+            <br>
+            <ion-item>
+              <ion-input type="password" formControlName="password" [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty" [(ngModel)]="user.password" placeholder="Mot de passe" name="password" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+              <p style="color: red;">Mot de passe trop court.</p>
+            </ion-item>
+            <br>
+            <ion-item>
+              <ion-input type="mail" formControlName="mail" [class.invalid]="!signupForm.controls.mail.valid && signupForm.controls.mail.dirty" [(ngModel)]="user.mail" placeholder="Adresse Mail" name="mail" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="signupForm.controls.mail.errors !== null && signupForm.controls.mail.dirty && !signupForm.controls.mail.valid">
+              <p *ngIf="signupForm.controls.mail.errors['exist err'] === 'This value is already used.' ; else elseBlock" style="color: red;">Ce mail est déjà utilisé.</p>
+              <ng-template #elseBlock><p style="color: red;">Entrer un mail valide.</p></ng-template>
+            </ion-item>
+            <br>
+            <ion-item>
+              <ion-avatar item-start >
+                <img src="../../assets/imgs/avatar.png" *ngIf="base64Image == ''" (click)="modeTakeImage()">
+                <img [src]="base64Image" *ngIf="base64Image != ''" (click)="modeTakeImage()">
+              </ion-avatar>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button icon-left class="submit-btn"  type="button" [disabled]="!registerForm.valid" style="background-color: #FF4500">
+            S'inscrire
+            <ion-icon name="log-in"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button icon-right class="register-btn" [navPush]="signup" clear (click)="login();">
+            Se connecter
+            <ion-icon name="log-in"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+  </div>
+</ion-content>
