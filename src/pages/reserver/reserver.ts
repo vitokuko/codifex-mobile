@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Platform } from 'ionic-angular/platform/platform';
 
 /**
  * Generated class for the ReserverPage page.
@@ -14,8 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'reserver.html',
 })
 export class ReserverPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  isAndroid : Boolean = false;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public platform:Platform) {
+    this.isAndroid = platform.is('android');
   }
 
   ionViewDidLoad() {
