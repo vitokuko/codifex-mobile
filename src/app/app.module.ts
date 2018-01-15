@@ -15,6 +15,7 @@ import {ReserverPage} from "../pages/reserver/reserver";
 import { AuthProvider } from '../providers/auth/auth';
 import {RegisterPage} from "../pages/register/register";
 import {ForgotPasswordPage} from "../pages/forgot-password/forgot-password";
+import { DetailPavPage } from '../pages/detail-pav/detail-pav';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {ForgotPasswordPage} from "../pages/forgot-password/forgot-password";
     TabsPage,
     LoginPage,
     RegisterPage,
-    ForgotPasswordPage
+    ForgotPasswordPage,
+    DetailPavPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import {ForgotPasswordPage} from "../pages/forgot-password/forgot-password";
     TabsPage,
     LoginPage,
     RegisterPage,
-    ForgotPasswordPage
+    ForgotPasswordPage,
+    DetailPavPage
   ],
   providers: [
     StatusBar,
