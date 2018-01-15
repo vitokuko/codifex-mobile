@@ -1,17 +1,42 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar [color]="isAndroid ? 'danger' : 'primary'">
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="card-background-page">
+
+  <ion-card *ngFor="let list of listPavillon">
+    <img src="../../assets/imgs/card-saopaolo.png" />
+    <ion-card-content>
+      <h1>{{ list.libelle }}</h1> 
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='star'></ion-icon>
+          87 chambres
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='star'></ion-icon>
+          3 étages
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-start (click)="goDetailPav(list);">
+          <ion-icon name='add'></ion-icon>
+          plus...
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
 </ion-content>
