@@ -30,13 +30,13 @@
         </ion-row>
         <ion-row>
           <ion-col col-6>
-            <button ion-button icon-left class="submit-btn"(click)="login();" type="button" [disabled]="!loginForm.valid" style="background-color: #FF4500">
+            <button ion-button icon-left class="submit-btn"(click)="login();" type="button" style="background-color: #FF4500">
               Se connecter
               <ion-icon name="log-in"></ion-icon>
             </button>
           </ion-col>
           <ion-col col-6>
-            <button ion-button icon-right class="register-btn" [navPush]="signup" (click)="register();">
+            <button ion-button icon-right class="register-btn" (click)="register();">
                &nbsp;S'inscrire &nbsp;
               <ion-icon name="log-in"></ion-icon>&nbsp;
             </button>
@@ -46,7 +46,7 @@
     </div>
     <ion-row>
       <ion-col>
-        <button ion-button class="submit-btn" full clear style="color: white" [navPush]="forgotPass" (click)="forgotPassword();">Mot de passe oublié ?</button>
+        <button ion-button class="submit-btn" full clear style="color: white" (click)="forgotPassword();">Mot de passe oublié ?</button>
       </ion-col>
     </ion-row>
   </div>
