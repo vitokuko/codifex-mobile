@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import * as HighCharts from 'highcharts';
 
@@ -17,13 +17,15 @@ import * as HighCharts from 'highcharts';
 })
 export class DetailPavPage {
   pavillon;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewController: ViewController) {
+  isAndroid : Boolean = false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewController: ViewController,public platform:Platform) {
     this.pavillon = navParams.get('pavillon');
+    this.isAndroid = platform.is('android');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailPavPage');
-    var myChart = HighCharts.chart('container', {
+    HighCharts.chart('container', {
       chart: {
         type: 'bar'
       },
@@ -46,7 +48,7 @@ export class DetailPavPage {
         data: [5, 7, 3]
       }]
     });
-    var myChart1 = HighCharts.chart('container1', {
+    HighCharts.chart('container1', {
       chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
@@ -98,7 +100,7 @@ export class DetailPavPage {
         }]
       }]
     });
-    var myChart2 = HighCharts.chart('container2', {
+    HighCharts.chart('container2', {
       chart: {
         type: 'column'
       },

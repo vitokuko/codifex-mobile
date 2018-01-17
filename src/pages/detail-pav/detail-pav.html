@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar [color]="isAndroid? 'danger' : 'primary'">
     <button (click)="dismiss();" ion-button>
       <ion-icon color="light" name="arrow-back"></ion-icon>
     </button>
@@ -17,6 +17,30 @@
 
 
 <ion-content padding>
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        Inner Button
+        <button ion-button item-end outline>Outline</button>
+      </ion-item>
+    
+      <ion-item>
+        Left Icon Button
+        <button ion-button item-end outline icon-start>
+          <ion-icon name='star'></ion-icon>
+          Left Icon
+        </button>
+      </ion-item>
+    
+      <ion-item>
+        Right Icon Button
+        <button ion-button item-end outline icon-end>
+          Right Icon
+          <ion-icon name='star'></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+  </ion-card>
   <ion-card>
     <div id="container" style="display: block;"></div>
   </ion-card>
