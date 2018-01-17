@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar [color]="isAndroid ? 'danger' : 'primary'">
-    <ion-title>Home</ion-title>
+    <ion-title>Accueil</ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
         <ion-icon name="search"></ion-icon>
@@ -12,27 +12,27 @@
 <ion-content class="card-background-page">
 
   <ion-card *ngFor="let list of listPavillon">
-    <img src="../../assets/imgs/card-saopaolo.png" />
+    <img src="../../assets/imgs/imgage.jpeg" />
     <ion-card-content>
       <h1>{{ list.libelle }}</h1> 
     </ion-card-content>
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="danger" icon-start>
+        <button ion-button clear small color="primary" icon-start>
           <ion-icon name='star'></ion-icon>
           87 chambres
         </button>
       </ion-col>
       <ion-col text-center>
-        <button ion-button clear small color="danger" icon-start>
+        <button ion-button clear small color="primary" icon-start>
           <ion-icon name='star'></ion-icon>
           3 étages
         </button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="danger" icon-start (click)="goDetailPav(list);">
-          <ion-icon name='add'></ion-icon>
-          plus...
+        <button ion-button clear small color="primary" icon-start (click)="goDetailPav(list);">
+          <ion-icon name='pulse'></ion-icon>
+          Stat
         </button>
       </ion-col>
     </ion-row>

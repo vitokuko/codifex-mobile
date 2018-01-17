@@ -16,6 +16,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import {RegisterPage} from "../pages/register/register";
 import {ForgotPasswordPage} from "../pages/forgot-password/forgot-password";
 import { DetailPavPage } from '../pages/detail-pav/detail-pav';
+import { ComptePage } from '../pages/compte/compte';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DetailPavPage } from '../pages/detail-pav/detail-pav';
     LoginPage,
     RegisterPage,
     ForgotPasswordPage,
-    DetailPavPage
+    DetailPavPage,
+    ComptePage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { DetailPavPage } from '../pages/detail-pav/detail-pav';
     LoginPage,
     RegisterPage,
     ForgotPasswordPage,
-    DetailPavPage
+    DetailPavPage,
+    ComptePage
   ],
   providers: [
     StatusBar,
