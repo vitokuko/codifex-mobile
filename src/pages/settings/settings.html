@@ -15,16 +15,16 @@
 
 <ion-content padding>
   <ion-list no-border>
-  
+
     <ion-list-header>
       Configuration
     </ion-list-header>
-  
+
     <ion-item>
       <ion-icon name='contact' item-start></ion-icon>
       <div (click)="goCompte();">Compte</div>
     </ion-item>
-  
+
     <ion-item>
       <ion-toggle checked="false"></ion-toggle>
       <ion-label>
@@ -34,8 +34,10 @@
     </ion-item>
 
     <ion-item>
-      <ion-icon name='lock' item-start></ion-icon>
+      <a (click)="disconnected();">
+        <ion-icon name='lock' item-start></ion-icon>
         Deconnecter
-      </ion-item>
+      </a>
+    </ion-item>
   </ion-list>
 </ion-content>

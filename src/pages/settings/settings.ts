@@ -3,6 +3,7 @@ import { ComptePage } from './../compte/compte';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular/platform/platform';
+import {LoginPage} from "../login/login";
 
 /**
  * Generated class for the SettingsPage page.
@@ -26,11 +27,17 @@ export class SettingsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
   }
-  
+
   goCompte(){
     this.navCtrl.setRoot(ComptePage);
   }
-  
+
+  disconnected(){
+   // this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.parent.viewCtrl.dismiss();
+    //console.log();
+  }
+
   dismiss(){
     this.viewCtrl.dismiss();
   }

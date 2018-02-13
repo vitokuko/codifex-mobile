@@ -10,7 +10,7 @@
     <button (click)="dismiss();" ion-button>
       <ion-icon color="light" name="arrow-back"></ion-icon>
     </button>
-    <ion-title>{{pavillon.libelle}}</ion-title>
+    <ion-title>{{pavillonId}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,23 +20,21 @@
   <ion-card>
     <ion-list>
       <ion-item>
-        Inner Button
-        <button ion-button item-end outline>Outline</button>
+        Nombre D'Étage :
+        <button ion-button item-end outline> {{nombreEtageOfPav}}</button>
       </ion-item>
-    
+
       <ion-item>
-        Left Icon Button
+        Nombre Chambre Homme :
         <button ion-button item-end outline icon-start>
-          <ion-icon name='star'></ion-icon>
-          Left Icon
+          {{nombreEtageOfPavHomme}}
         </button>
       </ion-item>
-    
+
       <ion-item>
-        Right Icon Button
+        Nombre Chambre Femme :
         <button ion-button item-end outline icon-end>
-          Right Icon
-          <ion-icon name='star'></ion-icon>
+          {{nombreEtageOfPavFemme}}
         </button>
       </ion-item>
     </ion-list>

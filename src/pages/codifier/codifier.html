@@ -12,45 +12,36 @@
 
 
 <ion-content padding>
-  <button ion-button color="secondary" outline icon-only>
-    <ion-icon name='list-box' is-active="false"></ion-icon>
+  <button ion-button color="secondary" outline icon-only (click)="goAffinite();">
+    <ion-icon name="people" is-active="false"></ion-icon>
   </button>
   <h1 style="text-align:center;">Formulaire</h1>
   <ion-list>
-  
+    <br>
     <ion-item>
-      <ion-label floating>Pavillon</ion-label>
-      <ion-input type="text" value=""></ion-input>
+      <ion-label floating>Selectionner le pavillon</ion-label>
+      <ion-select (ionChange)="getDataEtageOfPavilon($event);">
+        <ion-option value="{{list.id}}" *ngFor="let list of listPavillon">{{list.label}}</ion-option>
+      </ion-select>
     </ion-item>
     <br>
     <ion-item>
-      <ion-label>Etage</ion-label>
-      <ion-select>
-        <ion-option value="nes1">étage 1</ion-option>
-        <ion-option value="nes2">étage 2</ion-option>
-        <ion-option value="nes3">étage 3</ion-option>
-        <ion-option value="nes4">étage 4</ion-option>
+      <ion-label floating>Selectionner l'etage</ion-label>
+      <ion-select (ionChange)="getAllChambreOfEtage($event);">
+        <ion-option value="{{list.etage.id}}" *ngFor="let list of listEtage">{{list.etage.label}}</ion-option>
       </ion-select>
     </ion-item>
-
+    <br>
     <ion-item>
       <ion-label floating>Numéro chambre</ion-label>
-      <ion-input type="number" value=""></ion-input>
-    </ion-item>
-    <br>
-    <ion-item>
-      <ion-label>Position</ion-label>
-      <ion-select>
-        <ion-option value="nes1">1er personne</ion-option>
-        <ion-option value="nes2">2em personne</ion-option>
-        <ion-option value="nes3">3em personne</ion-option>
-        <ion-option value="nes4">4em personne</ion-option>
+      <ion-select (ionChange)="getChambreSelected($event);">
+        <ion-option value="{{list.id}}" *ngFor="let list of listChambreOfEtage">{{list.label}}</ion-option>
       </ion-select>
     </ion-item>
+    <br>
 
-  
   </ion-list>
-  
+
   <p style="margin-left:20%;">
     <button ion-button color="danger" icon-start>
       Annuler

@@ -23,14 +23,14 @@
               </ion-item>
               <br><br>
               <ion-item>
-                <ion-input type="password" formControlName="password" ([mgModel])="user.password" placeholder="Password" name="password" required></ion-input>
+                <ion-input type="password" formControlName="password" ([ngModel])="user.password" placeholder="Password" name="password" required></ion-input>
               </ion-item>
             </ion-list>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col col-6>
-            <button ion-button icon-left class="submit-btn"(click)="login();" type="button" style="background-color: #FF4500">
+            <button ion-button icon-left class="submit-btn"(click)="login();" type="button" style="background-color: #00A994;margin-left: 15%;">
               Se connecter
               <ion-icon name="log-in"></ion-icon>
             </button>

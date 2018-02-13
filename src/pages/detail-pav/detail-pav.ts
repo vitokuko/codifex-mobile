@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import * as HighCharts from 'highcharts';
+import {DataProvider} from "../../providers/data/data";
 
 /**
  * Generated class for the DetailPavPage page.
@@ -16,24 +17,35 @@ import * as HighCharts from 'highcharts';
   templateUrl: 'detail-pav.html',
 })
 export class DetailPavPage {
-  pavillon;
+  pavillonId;
   isAndroid : Boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewController: ViewController,public platform:Platform) {
-    this.pavillon = navParams.get('pavillon');
+  nombreEtageOfPav:any[];
+  nombreEtageOfPavHomme;
+  nombreEtageOfPavFemme;
+  labelEtageOfPav;
+  barSerieEtageOfPav = [
+    {
+      name:'',
+      data:[]
+    }
+  ];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewController: ViewController,public platform:Platform, public dataProvider:DataProvider) {
+    this.pavillonId = navParams.get('pavillonId');
     this.isAndroid = platform.is('android');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailPavPage');
+    this.getAllInformationOfPav();
     HighCharts.chart('container', {
       chart: {
         type: 'bar'
       },
       title: {
-        text: 'Fruit Consumption'
+        text: 'Reservation pour chaque Etage'
       },
       xAxis: {
-        categories: ['Apples', 'Bananas', 'Oranges']
+        categories: ['0-Etage','1-Etage','2-Etage']
       },
       yAxis: {
         title: {
@@ -41,10 +53,10 @@ export class DetailPavPage {
         }
       },
       series: [{
-        name: 'Jane',
+        name: 'Homme',
         data: [1, 0, 4]
       }, {
-        name: 'John',
+        name: 'Femme',
         data: [5, 7, 3]
       }]
     });
@@ -170,5 +182,36 @@ export class DetailPavPage {
   dismiss() {
     this.viewController.dismiss();
   }
+
+  getAllInformationOfPav(){
+    this.dataProvider.getData('pavillonEtages?filter='+'{"where":{"pavillonId":"'+ this.pavillonId  +'"},"include":["etage","pavillon",{"chambres":{"positions":{"etudiant":["departement","option","cycle","niveau"]}}}]}')
+      .then(
+        data => {
+          console.log(data);
+          this.nombreEtageOfPav = data['length'];
+          this.getNombreEtageOfPavDemeurant(data);
+          console.log(this.labelEtageOfPav);
+        },
+        error => console.log(error)
+      );
+  }
+
+  getNombreEtageOfPavDemeurant(value){
+    this.labelEtageOfPav = [];
+    this.nombreEtageOfPavFemme = 0;
+    this.nombreEtageOfPavHomme = 0;
+    let i = 0;
+    while(i < value.length){
+      let label = value[i]['etage'].label;
+      this.labelEtageOfPav.push(label);
+      if (value[i].demeurant == 'Homme'){
+        this.nombreEtageOfPavHomme++;
+      }else{
+        this.nombreEtageOfPavFemme++;
+      }
+      i++;
+    }
+  }
+
 
 }

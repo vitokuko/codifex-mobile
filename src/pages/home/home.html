@@ -10,11 +10,11 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-
+  <a id="unique" (click)="initialize()"></a>
   <ion-card *ngFor="let list of listPavillon">
-    <img src="../../assets/imgs/imgage.jpeg" />
+    <img src="https://media-exp2.licdn.com/mpr/mpr/AAEAAQAAAAAAAAzlAAAAJGEyZWM1NzZmLWIzOWYtNDgzNy1hMjUxLTZhODE5NDMzZTdjOA.jpg" style="height: 150px;"/>
     <ion-card-content>
-      <h1>{{ list.libelle }}</h1> 
+      <h1><b>{{ list.label }}</b></h1>
     </ion-card-content>
     <ion-row no-padding>
       <ion-col>
@@ -30,13 +30,11 @@
         </button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="primary" icon-start (click)="goDetailPav(list);">
+        <button ion-button clear small color="primary" icon-start (click)="goDetailPav(list.id);">
           <ion-icon name='pulse'></ion-icon>
           Stat
         </button>
       </ion-col>
     </ion-row>
   </ion-card>
-
-
 </ion-content>

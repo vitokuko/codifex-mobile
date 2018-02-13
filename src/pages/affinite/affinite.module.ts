@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ReserverPage } from './reserver';
+import { AffinitePage } from './affinite';
 
 @NgModule({
   declarations: [
-    ReserverPage,
+    AffinitePage,
   ],
   imports: [
-    IonicPageModule.forChild(ReserverPage),
+    IonicPageModule.forChild(AffinitePage),
   ],
 })
-export class ReserverPageModule {}
+export class AffinitePageModule {}

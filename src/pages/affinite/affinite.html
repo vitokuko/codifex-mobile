@@ -1,0 +1,35 @@
+<!--
+  Generated template for the AffinitePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar [color]="isAndroid? 'danger' : 'primary'">
+    <button (click)="dismiss();" ion-button>
+      <ion-icon color="light" name="arrow-back"></ion-icon>
+    </button>
+    <ion-title>Affinite</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="pavillonId">
+      <ion-segment-button value="{{list.id}}" *ngFor="let list of listPavillon" (click)="getAllEtageOfPav(list.id);">
+        {{list.label}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list [ngSwitch]="pavillonId">
+    <button ion-item *ngFor="let list of listEtageOfPav" (click)="openEtageDetailsPage(list)" icon-start>
+      <ion-thumbnail item-start>
+        <img src="http://www.icone-png.com/png/31/31138.png">
+      </ion-thumbnail>
+      {{list.label}}
+    </button>
+  </ion-list>
+</ion-content>
